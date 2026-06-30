@@ -15,7 +15,15 @@ export type PovprasevanjeInput = {
 export async function oddajPovprasevanje(data: PovprasevanjeInput): Promise<{ uspeh: boolean; napaka?: string }> {
   const supabase = await createClient()
 
-  const { error } = await supabase.from('povprasevanja').insert({
+  const insertData: {
+    tip: 'charter' | 'skipper' | 'plovilo'
+    target_id: string
+    ime: string
+    email: string
+    telefon: string | null
+    termin: string | null
+    sporocilo: string
+  } = {
     tip: data.tip,
     target_id: data.target_id,
     ime: data.ime,
@@ -23,7 +31,9 @@ export async function oddajPovprasevanje(data: PovprasevanjeInput): Promise<{ us
     telefon: data.telefon || null,
     termin: data.termin || null,
     sporocilo: data.sporocilo,
-  })
+  }
+
+  const { error } = await supabase.from('povprasevanja').insert(insertData)
 
   if (error) {
     console.error('Supabase insert error:', error)
