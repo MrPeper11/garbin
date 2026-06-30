@@ -33,7 +33,8 @@ export async function oddajPovprasevanje(data: PovprasevanjeInput): Promise<{ us
     sporocilo: data.sporocilo,
   }
 
-  const { error } = await supabase.from('povprasevanja').insert(insertData)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { error } = await (supabase as any).from('povprasevanja').insert(insertData)
 
   if (error) {
     console.error('Supabase insert error:', error)
