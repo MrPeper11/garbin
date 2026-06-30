@@ -138,15 +138,19 @@ export interface Povprasevanje {
 export interface Database {
   public: {
     Tables: {
-      plovila: { Row: Plovilo; Insert: Omit<Plovilo, 'id' | 'created_at'>; Update: Partial<Plovilo> }
-      profiles: { Row: Profil; Insert: Omit<Profil, 'created_at'>; Update: Partial<Profil> }
-      charter_narocnine: { Row: CharterNarocnina; Insert: Omit<CharterNarocnina, 'id' | 'created_at' | 'updated_at'>; Update: Partial<CharterNarocnina> }
-      novice: { Row: Novica; Insert: Omit<Novica, 'id' | 'created_at'>; Update: Partial<Novica> }
-      novice_kategorije: { Row: NovicaKategorija; Insert: Omit<NovicaKategorija, 'id'>; Update: Partial<NovicaKategorija> }
-      novice_tagi: { Row: NovicaTag; Insert: Omit<NovicaTag, 'id'>; Update: Partial<NovicaTag> }
-      komentarji: { Row: Komentar; Insert: Omit<Komentar, 'id' | 'created_at'>; Update: Partial<Komentar> }
-      oprema_moznosti: { Row: OpremaOpcija; Insert: Omit<OpremaOpcija, 'id'>; Update: Partial<OpremaOpcija> }
-      povprasevanja: { Row: Povprasevanje; Insert: Omit<Povprasevanje, 'id' | 'created_at'>; Update: Partial<Povprasevanje> }
+      plovila: { Row: Plovilo; Insert: Omit<Plovilo, 'id' | 'created_at'>; Update: Partial<Plovilo>; Relationships: [] }
+      profiles: { Row: Profil; Insert: Omit<Profil, 'created_at'>; Update: Partial<Profil>; Relationships: [] }
+      charter_narocnine: { Row: CharterNarocnina; Insert: Omit<CharterNarocnina, 'id' | 'created_at' | 'updated_at'>; Update: Partial<CharterNarocnina>; Relationships: [] }
+      novice: { Row: Novica; Insert: Omit<Novica, 'id' | 'created_at'>; Update: Partial<Novica>; Relationships: [] }
+      novice_kategorije: { Row: NovicaKategorija; Insert: Omit<NovicaKategorija, 'id'>; Update: Partial<NovicaKategorija>; Relationships: [] }
+      novice_tagi: { Row: NovicaTag; Insert: Omit<NovicaTag, 'id'>; Update: Partial<NovicaTag>; Relationships: [] }
+      komentarji: { Row: Komentar; Insert: Omit<Komentar, 'id' | 'created_at'>; Update: Partial<Komentar>; Relationships: [] }
+      oprema_moznosti: { Row: OpremaOpcija; Insert: Omit<OpremaOpcija, 'id'>; Update: Partial<OpremaOpcija>; Relationships: [] }
+      povprasevanja: { Row: Povprasevanje; Insert: Omit<Povprasevanje, 'id' | 'created_at'>; Update: Partial<Povprasevanje>; Relationships: [] }
     }
+    Views: Record<string, never>
+    Functions: Record<string, never>
+    Enums: Record<string, never>
+    CompositeTypes: Record<string, never>
   }
 }
